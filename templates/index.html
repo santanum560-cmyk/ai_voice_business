@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Voice Generator - Hindi & English</title>
+    <style>
+        body { font-family: Arial; background:#111; color:white; text-align:center; padding:40px; }
+        textarea { width:80%; height:150px; font-size:16px; padding:10px; }
+        button { padding:12px 25px; font-size:18px; margin-top:15px; cursor:pointer; }
+        audio { margin-top:20px; }
+    </style>
+</head>
+<body>
+
+<h1>🎤 Realistic AI Voice Generator</h1>
+<p>Hindi / English Text ko natural voice me badlo</p>
+
+<form method="POST">
+    <textarea name="text" placeholder="Yahan apna text likho..." required></textarea><br>
+    <button type="submit">Generate Voice</button>
+</form>
+
+{% if audio_file %}
+    <h3>Your Generated Voice:</h3>
+    <audio controls>
+        <source src="/static/audio/{{ audio_file }}" type="audio/wav">
+    </audio>
+    <br>
+    <a href="/static/audio/{{ audio_file }}" download>
+        <button>Download MP3</button>
+    </a>
+{% endif %}
+
+</body>
+</html>
